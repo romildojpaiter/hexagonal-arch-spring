@@ -12,4 +12,7 @@ public interface EnderecoMapper {
     @Mapping(source = "localidade", target = "cidade")
     EnderecoEntity toEntity(Endereco endereco);
 
+    @Mapping(source = "cidade", target = "localidade")
+    Endereco toDomain(EnderecoEntity enderecoEntity);
+
 }

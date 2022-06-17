@@ -8,6 +8,7 @@ import lombok.Setter;
 public class UsuarioRequest {
 
     private String nome;
+    private String senha;
     private String instagram;
     private String cep;
 

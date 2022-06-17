@@ -5,13 +5,14 @@ import com.paiterdigital.hexagonalarchspring.adapters.inbound.request.UsuarioReq
 import com.paiterdigital.hexagonalarchspring.application.core.domain.Usuario;
 import com.paiterdigital.hexagonalarchspring.application.ports.in.SalvarUsuarioServicePort;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/usuarios")
 @RequiredArgsConstructor
 public class UsuarioController {
 
@@ -19,9 +20,9 @@ public class UsuarioController {
     private final UsuarioRequestMapper usuarioRequestMapper;
 
     @PostMapping
-    public Usuario salvarUsuario(@RequestBody final UsuarioRequest usuarioRequest){
+    public ResponseEntity<Usuario> salvarUsuario(@RequestBody final UsuarioRequest usuarioRequest){
         var usuario = usuarioRequestMapper.toDomain(usuarioRequest);
-        return salvarUsuarioServicePort.salvar(usuario, usuarioRequest.getCep());
+        return ResponseEntity.ok(salvarUsuarioServicePort.salvar(usuario, usuarioRequest.getCep()));
     }
 
 }

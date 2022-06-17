@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"Romildo Paiter\",\n    \"instagram\": \"romildopaiter\",\n    \"cep\": \"78158068\"\n}",
+					"raw": "{\n    \"nome\": \"Romildo Paiter\",\n    \"instagram\": \"romildopaiter\",\n    \"cep\": \"86060630\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,7 +20,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/usuario",
+					"raw": "http://localhost:8080/api/usuarios",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -28,7 +28,62 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"usuario"
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "enderecos by cep",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "rpaiter",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "senha123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/enderecos/cep/:cep",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"enderecos",
+						"cep",
+						":cep"
+					],
+					"variable": [
+						{
+							"key": "cep",
+							"value": "78158-068"
+						}
 					]
 				}
 			},

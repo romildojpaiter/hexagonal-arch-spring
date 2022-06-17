@@ -1,9 +1,13 @@
 package com.paiterdigital.hexagonalarchspring.adapters.inbound.entity;
 
-import lombok.Data;
-
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.util.UUID;
+import lombok.Data;
 
 @Data
 @Entity
@@ -18,6 +22,8 @@ public class UsuarioEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="endereco_id")
     private EnderecoEntity endereco;
+
+    private String password;
 
 }
 

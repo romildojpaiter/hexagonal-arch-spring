@@ -9,6 +9,7 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UsuarioMapper {
 
+    @Mapping(source = "senha", target = "password")
     UsuarioEntity toEntity(final Usuario usuario);
 
     @Mapping(source = "endereco.cidade", target = "endereco.localidade")
